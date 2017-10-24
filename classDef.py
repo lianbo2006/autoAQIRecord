@@ -9,7 +9,8 @@ import requests
 class mongoType():
     #定义数据类，参数有地址（client），数据库（db），集合（col）
     def __init__(self):
-        self.client = MongoClient('219.216.87.8', 27017)
+        # self.client = MongoClient('219.216.87.8', 27017)
+        self.client = MongoClient('10.0.1.31', 27017)
         self.db = self.client["aqi_record"]
         #集合以时间命名，xxxx-xx-xx
         self.col = self.db[datetime.now().strftime("%Y-%m-%d")]
