@@ -35,10 +35,12 @@ def main():
     #设定城市列表，四个城市
     city_list = ["shenyang", "haerbin", "changchun",  "beijing"]
     #设定时间循环
-    delta = timedelta(seconds=20)
+    # delta = timedelta(seconds=20)
+    delta = timedelta(hours=1)
     now = datetime.now()
     begin = now
-    end = now + timedelta(minutes=2)
+    # end = now + timedelta(minutes=2)
+    end = now + timedelta(minutes=30)
     while now <= end:
         city_info_list = getInfoList(city_list)
         print("城市AQI结果：")
