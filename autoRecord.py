@@ -3,6 +3,7 @@
 from classDef import mongoType, cityInfo
 from datetime import datetime, timedelta
 from pprint import pprint
+import time
 
 
 def getInfoList(cityList):
@@ -35,17 +36,21 @@ def main():
     #设定城市列表，四个城市
     city_list = ["shenyang", "haerbin", "changchun",  "beijing"]
     #设定时间循环
-    delta = timedelta(seconds=20)
-    now = datetime.now()
-    begin = now
-    end = now + timedelta(minutes=2)
-    while now <= end:
+    begin = datetime.now()
+    now = begin
+    end = begin  + timedelta(minutes=2)
+    count = 0
+    while not (now >= end):
+        print("{},开始进行查询写入".format(now.strftime("%x %X")))
         city_info_list = getInfoList(city_list)
         print("城市AQI结果：")
         pprint(city_info_list)
         mongoWrite(city_info_list)
-        now += delta
-    print("时间结束")
+        count += 1
+        time.sleep(10)
+        now = datetime.now()
+
+    print("共查询{}次,时间结束".format(count))
 
 
 if __name__ == '__main__':
