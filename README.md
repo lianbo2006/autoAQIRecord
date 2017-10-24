@@ -5,6 +5,7 @@
 
 需要安装的库
 ```commandline
+$ sudo apt-get install git
 $ sudo apt-get install  python3-pip
 $ sudo pip3 install  pymongo bs4
 ```
